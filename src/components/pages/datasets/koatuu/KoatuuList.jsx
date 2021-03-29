@@ -5,54 +5,58 @@ import PageBox from 'components/pages/PageBox';
 import { useTranslation } from 'react-i18next';
 
 
-const CompanyUkList = () => {
+const KoatuuList = () => {
   const { t } = useTranslation();
+
   const columns = [
     {
-      header: t('companyID'),
-      prop: 'edrpou',
-      width: '5%',
+      header: t('code'),
+      prop: 'code',
+      width: '10%',
     },
     {
       header: t('name'),
       prop: 'name',
-      width: '35%',
+      width: '20%',
     },
     {
-      header: t('status'),
-      prop: 'status',
-      width: '10%',
+      header: t('thirdLevelOfSubordination'),
+      prop: 'third_level',
+      width: '20%',
     },
     {
-      header: t('address'),
-      prop: 'address',
-      width: '40%',
+      header: t('secondLevelOfSubordination'),
+      prop: 'second_level',
+      width: '20%',
     },
     {
-      header: t('authorizedCapital'),
-      prop: 'authorized_capital',
-      width: '10%',
+      header: t('firstLevelOfSubordination'),
+      prop: 'first_level',
+      width: '20%',
     },
   ];
+
   return (
     <PageBox header={t('viewTheRegistry')} noBox>
       <Table
         columns={columns}
-        url="company/uk/"
+        url="koatuu-fourth-level/"
         fields={[
           'id',
-          'edrpou',
+          'code',
           'name',
-          'status',
-          'address',
-          'authorized_capital',
+          'third_level',
+          'second_level',
+          'first_level',
+          'fourth-level',
         ]}
         axiosConfigs={{ useProjectToken: true }}
+
       />
     </PageBox>
   );
 };
 
-// CompanyList.propTypes = {};
+// KoatuuList.propTypes = {};
 
-export default CompanyUkList;
+export default KoatuuList;
